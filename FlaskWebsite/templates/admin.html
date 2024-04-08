@@ -1,0 +1,125 @@
+ <!DOCTYPE html>
+<html>
+
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+        <meta name="theme-color" content="#e6e6e6">
+    </head>
+
+
+    <body>
+
+        <div class="main">
+
+            <div class="topbar">
+
+                <div class="top_left">
+
+                    <a class="sElement" href="/index">
+                        <img src="{{ url_for('static', filename='home_logo.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Home
+                    </a>
+
+                    <a class="sElement" href="/residents">
+                        <img src="{{ url_for('static', filename='residents.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Residents
+                    </a>
+
+                    <a class="sElement" href="/energy">
+                        <img src="{{ url_for('static', filename='energy.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Energy <br> Monitor
+                    </a>
+
+                </div>
+
+                <div class="top_mid">
+
+                    <div class ="name">
+                        Student Complex
+                    </div>
+
+                    <div class ="location">
+                        Apartment 4
+                    </div>
+
+                </div>
+
+                <div class="top_right">
+                    <a class="rElement" href="/create">
+                        <img src="{{ url_for('static', filename='create.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Create
+                    </a>
+                    <a class="rElement" href="/dashboard">
+                        <img src="{{ url_for('static', filename='dashboard.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Dashboard
+                    </a>
+                    <a class="rElement" href="/profile">
+                        <img src="{{ url_for('static', filename='profile.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Profile
+                    </a>
+                    <a class="rElement" href="/logout">
+                        <img src="{{ url_for('static', filename='logout.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Logout
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="home_text_first">
+                <h4>Manage Students<h4>
+            </div>
+            <div class="left">
+                <h5>Add Student</h5>
+                <form action="/addstudent" method="post">
+                    <div class="form-field">
+                        Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="Email" class="btn">
+                    </div>
+                    <div class="form-field">
+                        Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="password" name="Password" class="btn">
+                    </div>
+                    <div class="form-field">
+                        Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="Name" class="btn">
+                    </div>
+                    <div class="form-field">
+                        Profile &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="Profile" class="btn">
+                    </div>
+                    <div class="form-field">
+                        University &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="University" class="btn">
+                    </div>
+                    <br>
+                    <div class="form-field button">
+                        <input type="submit" class="btn" value="Add Student">
+                    </div>
+                </form>
+            </div>
+            <div class="right">
+                <h5>Remove All Students</h5>
+                {% for row in rows %}  
+                    <div class="box" id="box">
+                        <h6>{{row["name"]}}</h6>
+                        {{row["email"]}}
+                    </div>
+                {% endfor %} 
+                <form action="/removestudent" method="post">
+                    <div class="form-field button">
+                        <input type="submit" class="btn" value="Remove Students">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html> 

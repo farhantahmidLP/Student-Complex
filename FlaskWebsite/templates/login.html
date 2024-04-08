@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+        <meta name="theme-color" content="#e6e6e6">
+    </head>
+
+    <body>
+
+        <div class="main">
+
+            <div class="topbar">
+
+                <div class="top_left">
+
+                    <a class="sElement" href="/index">
+                        <img src="{{ url_for('static', filename='home_logo.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Home
+                    </a>
+
+                    <a class="sElement" href="/residents">
+                        <img src="{{ url_for('static', filename='residents.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Residents
+                    </a>
+
+                    <a class="sElement" href="/energy">
+                        <img src="{{ url_for('static', filename='energy.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Energy <br> Monitor
+                    </a>
+
+                </div>
+
+                <div class="top_mid">
+
+                    <div class ="name">
+                        Student Complex
+                    </div>
+
+                    <div class ="location">
+                        Apartment 4
+                    </div>
+
+                </div>
+
+                <div class="top_right">
+
+                    <a class="rElement" href="/login">
+                        <img src="{{ url_for('static', filename='login.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Login
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="home_text_first">
+                <h5>Login<h5>
+            </div>
+            <div class="home_text">
+                <form action="/authenticate" method="post">
+                    <div class="form-field">
+                        <h5>Username</h5>
+                        <input type="text" name="username">
+                    </div>
+                    <div class="form-field">
+                        <h5>Password</h5>
+                        <input type="password" name="password">
+                    </div>
+                    <div class="form-field button">
+                        <input type="submit" class="btn" value="Log in">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html> 
+
+

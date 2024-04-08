@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html>
+
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+        <meta name="theme-color" content="#e6e6e6">
+    </head>
+
+
+    <body>
+
+        <div class="main">
+
+            <div class="topbar">
+
+                <div class="top_left">
+
+                    <a class="sElement" href="/index">
+                        <img src="{{ url_for('static', filename='home_logo.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Home
+                    </a>
+
+                    <a class="sElement" href="/residents">
+                        <img src="{{ url_for('static', filename='residents.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Residents
+                    </a>
+
+                    <a class="sElement" href="/energy">
+                        <img src="{{ url_for('static', filename='energy.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Energy <br> Monitor
+                    </a>
+
+                </div>
+
+                <div class="top_mid">
+
+                    <div class ="name">
+                        Student Complex
+                    </div>
+
+                    <div class ="location">
+                        Apartment 4
+                    </div>
+
+                </div>
+
+                <div class="top_right">
+                    <a class="rElement" href="/create">
+                        <img src="{{ url_for('static', filename='create.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Create
+                    </a>
+                    <a class="rElement" href="/dashboard">
+                        <img src="{{ url_for('static', filename='dashboard.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Dashboard
+                    </a>
+                    <a class="rElement" href="/profile">
+                        <img src="{{ url_for('static', filename='profile.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Profile
+                    </a>
+                    <a class="rElement" href="/logout">
+                        <img src="{{ url_for('static', filename='logout.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Logout
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="home_text_first">
+                <h4>{{name}}'s Dashboard<h4>
+            </div>
+            <div class="home_text">
+                {% for row in rows %}
+                <div class="box" id="box">
+                    <p class="dateposted">{{row["dateposted"]}} &nbsp;
+                        {{row["timeposted"]}} &nbsp;
+                        {{row["name"]}}</p>
+                        <p class="content">{{row["content"]}}</p>
+                    </div>
+                    {% endfor %} 
+                    <form action="/remove" method="post">
+                        <div class="closeButton">
+                            <input type="submit" class="btn" value="Remove">
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </body>
+</html> 

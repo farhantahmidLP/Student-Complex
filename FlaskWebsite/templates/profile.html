@@ -1,0 +1,101 @@
+ <!DOCTYPE html>
+<html>
+
+
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+        <meta name="theme-color" content="#e6e6e6">
+    </head>
+
+
+    <body>
+
+        <div class="main">
+
+            <div class="topbar">
+
+                <div class="top_left">
+
+                    <a class="sElement" href="/index">
+                        <img src="{{ url_for('static', filename='home_logo.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Home
+                    </a>
+
+                    <a class="sElement" href="/residents">
+                        <img src="{{ url_for('static', filename='residents.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Residents
+                    </a>
+
+                    <a class="sElement" href="/energy">
+                        <img src="{{ url_for('static', filename='energy.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Energy <br> Monitor
+                    </a>
+
+                </div>
+
+                <div class="top_mid">
+
+                    <div class ="name">
+                        Student Complex
+                    </div>
+
+                    <div class ="location">
+                        Apartment 4
+                    </div>
+
+                </div>
+
+                <div class="top_right">
+                    <a class="rElement" href="/dashboard">
+                        <img src="{{ url_for('static', filename='dashboard.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Dashboard
+                    </a>
+                    <a class="rElement" href="/profile">
+                        <img src="{{ url_for('static', filename='profile.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Profile
+                    </a>
+                    <a class="rElement" href="/logout">
+                        <img src="{{ url_for('static', filename='logout.png') }}" alt="" width="50px" height="50px">
+                        <br>
+                        Logout
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="home_text_first">
+                <h4>{{name[0]}}'s Profile<h4>
+            </div>
+            <div class="home_text">
+                <form action="/profupdate" method="post">
+                    <div class="form-field">
+                        Name&nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="text" value='{{name[0]}}' name="name">
+                    </div>
+                    <div class="form-field">
+                        Profile&nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="text" value='{{prof[0]}}' name="profile">
+                    </div>
+                    <div class="form-field">
+                        University &nbsp;
+                        <input type="text" value='{{university[0]}}' name="university">
+                    </div>
+                    <div class="form-field">
+                        Email&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="text" value='{{emailid}}' name="email">
+                    </div>
+
+                    <div class="form-button">
+                        <input type="submit" class="btn" value="Save">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html> 
